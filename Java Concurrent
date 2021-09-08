@@ -1,3 +1,28 @@
+线程：
+1. Thread、Runnable和Callable区别：
+
+线程池：
+1. 线程池的各个参数的含义：
+  声明ThreadPoolExecutor类来创建线程池，其中有以下参数：
+  a. corePoolSize：
+     最小（注意是最小）可以同时运行的线程数量
+  b. workQueue：
+     新任务到来时，检查线程数是否等于corePoolSize。如果等于，将新任务存放到队列中
+  c. maximumPoolSize：
+     当workQueue满了以后，可以新增额外线程来执行任务。这里指定线程池中最多一共能有多少个线程执行。
+  d. keepAliveTime：
+     当线程数量超过corePoolSize时，意味着之前有额外线程被创建来执行任务。当这些额外线程空闲时，不会马上被销毁，而是等待keepAliveTime后仍空闲则将会销毁。
+  e. unit：
+     keepAliveTime的时间单位
+  f. threadFactory：
+     创建新线程时会用到
+  g. handler:
+     拒绝策略，有：AbortPolicy（拒绝并抛出异常）、CallerRunsPolicy（调用者自己的线程执行任务）、DiscardPolicy（拒绝并直接抛弃）、DiscardOldestPolicy（抛弃最早未处理的任务）
+  
+2. workQueue有哪些？
+
+3. threadFactory有哪些？
+
 面经看到的题目：
 1. 大量使用volatile会有什么问题：
   大量使用volatile关键字会导致各线程频繁从内存中读取变量的值。CPU处理数据的速率和内存读写速率差距较大，因此会影响效率。
